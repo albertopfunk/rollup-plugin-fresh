@@ -1,0 +1,28 @@
+{
+  "name": "rollup-plugin-fresh",
+  "version": "1.0.0",
+  "description": "clear targeted files from chosen directory at build time",
+  "main": "index.js",
+  "repository": "albertopfunk/rollup-plugin-fresh",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rollup-plugin",
+    "clear",
+    "remove",
+    "delete",
+    "clean"
+  ],
+  "author": "albertopfunk",
+  "license": "MIT",
+  "dependencies": {
+    "rimraf": "^3.0.0"
+  },
+  "peerDependencies": {
+    "rollup": "> 1.0"
+  },
+  "engines": {
+    "node": ">= 8.0"
+  }
+}
