@@ -13,28 +13,30 @@ async function asyncRimraf(path) {
 
 
 export default function({deleteAll = true, chosenDir = "", noDeleteOptions = [], quiet = false} = {}) {
+  
   const normPath = normalize(chosenDir);
 
   if (!existsSync(normPath)) {
-    console.log("Dir Not Found");
+    quiet ? null : console.log("Dir Not Found")
     return;
   }
 
   async function asyncClearEach(items) {
     for (let i = 0; i < items.length; i++) {
       if (existsSync(normPath + items[i])) {
-        console.log("File Removed:", items[i]);
+        quiet ? null : console.log("File Removed:", items[i]);
         await asyncRimraf(normPath + items[i]);
       } else {
-        console.log("File Not Found:", items[i]);
+        quiet ? null : console.log("File Not Found:", items[i]);
       }
     }
   }
   
   readdir(normPath, async function(err, items) {
+
     if (!deleteAll) {
       if (noDeleteOptions.length < 1) {
-        console.log("No Options Passed");
+        quiet ? null : console.log("No Options Passed");
         return;
       }
 
@@ -48,19 +50,31 @@ export default function({deleteAll = true, chosenDir = "", noDeleteOptions = [],
         }
       }
 
+      asyncClearEach(filteredItems);
       return {
-        name: "startFresh",
-        async buildStart(options) {
-          asyncClearEach(filteredItems);
-        }
+        name: "startFresh"
       }
+
+      // return {
+      //   name: "startFresh",
+      //   async buildStart(options) {
+      //     quiet ? null : console.log("OIOIOIOIOIOI")
+      //     asyncClearEach(filteredItems);
+      //   }
+      // }
     }
-  
+    
+    asyncClearEach(items);
     return {
-      name: "startFresh",
-      async buildStart(options) {
-        asyncClearEach(items);
-      }
+      name: "startFresh"
     }
+
+    // return {
+    //   name: "startFresh",
+    //   async buildStart(options) {
+    //     quiet ? null : console.log("OIOIOIOIOIOI")
+    //     asyncClearEach(items);
+    //   }
+    // }
   });
 }
