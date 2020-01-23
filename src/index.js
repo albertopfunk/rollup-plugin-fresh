@@ -13,7 +13,7 @@ async function asyncRimraf(path) {
 
 
 export default function({deleteAll = true, chosenDir = "", noDeleteOptions = [], quiet = false} = {}) {
-  
+  console.log("Run Check1")
   const normPath = normalize(chosenDir);
 
   if (!existsSync(normPath)) {
@@ -49,6 +49,8 @@ export default function({deleteAll = true, chosenDir = "", noDeleteOptions = [],
           filteredItems = filteredItems.filter(item => !item.includes(noDeleteOptions[i]));
         }
       }
+
+      console.log("Run Check2")
 
       asyncClearEach(filteredItems);
       return {
