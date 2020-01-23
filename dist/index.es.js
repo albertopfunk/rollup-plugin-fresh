@@ -3,20 +3,26 @@ import { normalize } from 'path';
 import rimraf from 'rimraf';
 
 async function asyncRimraf(path) {
-  return new Promise((resolve, reject) => {
-    resolve(rimraf(path, () => {
-      resolve("Success");
-    }));
-  }) 
+  return new Promise(resolve => {
+    resolve(
+      rimraf(path, () => {
+        resolve("Success");
+      })
+    );
+  });
 }
 
+function index({
+  deleteAll = true,
+  chosenDir = "",
+  noDeleteOptions = [],
+  quiet = false
+} = {}) {
 
-function index({deleteAll = true, chosenDir = "", noDeleteOptions = [], quiet = false} = {}) {
-  
   const normPath = normalize(chosenDir);
 
   if (!existsSync(normPath)) {
-    quiet ? null : console.log("Dir Not Found");
+    quiet ? null : console.log("Directory Not Found");
     return;
   }
 
@@ -30,9 +36,8 @@ function index({deleteAll = true, chosenDir = "", noDeleteOptions = [], quiet = 
       }
     }
   }
-  
-  readdir(normPath, async function(err, items) {
 
+  readdir(normPath, async function(err, items) {
     if (!deleteAll) {
       if (noDeleteOptions.length < 1) {
         quiet ? null : console.log("No Options Passed");
@@ -45,36 +50,22 @@ function index({deleteAll = true, chosenDir = "", noDeleteOptions = [], quiet = 
 
       if (noDeleteOptions.length > 1) {
         for (let i = 1; i < noDeleteOptions.length; i++) {
-          filteredItems = filteredItems.filter(item => !item.includes(noDeleteOptions[i]));
+          filteredItems = filteredItems.filter(
+            item => !item.includes(noDeleteOptions[i])
+          );
         }
       }
 
       asyncClearEach(filteredItems);
       return {
         name: "startFresh"
-      }
-
-      // return {
-      //   name: "startFresh",
-      //   async buildStart(options) {
-      //     quiet ? null : console.log("OIOIOIOIOIOI")
-      //     asyncClearEach(filteredItems);
-      //   }
-      // }
+      };
     }
-    
+
     asyncClearEach(items);
     return {
       name: "startFresh"
-    }
-
-    // return {
-    //   name: "startFresh",
-    //   async buildStart(options) {
-    //     quiet ? null : console.log("OIOIOIOIOIOI")
-    //     asyncClearEach(items);
-    //   }
-    // }
+    };
   });
 }
 
