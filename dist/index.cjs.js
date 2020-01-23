@@ -1,10 +1,21 @@
-const { promisify } = require('util');
-const fs = require('fs');
-const path = require('path');
-const rimraf = promisify(require('rimraf'))
+'use strict';
+
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var fs = require('fs');
+var path = require('path');
+var rimraf = _interopDefault(require('rimraf'));
+
+async function asyncRimraf(path) {
+  return new Promise((resolve, reject) => {
+    resolve(rimraf(path, () => {
+      resolve("Success");
+    }));
+  }) 
+}
 
 
-module.exports = function({deleteAll = true, chosenDir = "", noDeleteOptions = []} = {}) {
+function index({deleteAll = true, chosenDir = "", noDeleteOptions = [], quiet = false} = {}) {
   const normPath = path.normalize(chosenDir);
 
   if (!fs.existsSync(normPath)) {
@@ -16,7 +27,7 @@ module.exports = function({deleteAll = true, chosenDir = "", noDeleteOptions = [
     for (let i = 0; i < items.length; i++) {
       if (fs.existsSync(normPath + items[i])) {
         console.log("File Removed:", items[i]);
-        await rimraf(normPath + items[i]);
+        await asyncRimraf(normPath + items[i]);
       } else {
         console.log("File Not Found:", items[i]);
       }
@@ -56,3 +67,6 @@ module.exports = function({deleteAll = true, chosenDir = "", noDeleteOptions = [
     }
   });
 }
+
+module.exports = index;
+//# sourceMappingURL=index.cjs.js.map
