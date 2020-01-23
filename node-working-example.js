@@ -2,7 +2,7 @@
 
 node example
 
-you can copy this file to your project, and simple configure the user input options
+you can copy this file to your project, and simply configure the user input options
 
 */
 
