@@ -22,7 +22,7 @@ export default function({
   const normPath = normalize(chosenDir);
 
   if (!existsSync(normPath)) {
-    quiet ? null : console.log("Directory Not Found");
+    console.log("Directory Not Found");
     return;
   }
 
@@ -40,7 +40,7 @@ export default function({
   readdir(normPath, async function(err, items) {
     if (!deleteAll) {
       if (noDeleteOptions.length < 1) {
-        quiet ? null : console.log("No Options Passed");
+        console.log("No Options Passed");
         return;
       }
 

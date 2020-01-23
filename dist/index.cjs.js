@@ -26,7 +26,7 @@ function index({
   const normPath = path.normalize(chosenDir);
 
   if (!fs.existsSync(normPath)) {
-    quiet ? null : console.log("Directory Not Found");
+    console.log("Directory Not Found");
     return;
   }
 
@@ -44,7 +44,7 @@ function index({
   fs.readdir(normPath, async function(err, items) {
     if (!deleteAll) {
       if (noDeleteOptions.length < 1) {
-        quiet ? null : console.log("No Options Passed");
+        console.log("No Options Passed");
         return;
       }
 
