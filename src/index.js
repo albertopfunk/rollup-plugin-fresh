@@ -1,23 +1,28 @@
-import {existsSync, readdir} from 'fs';
-import {normalize} from 'path';
-import rimraf from 'rimraf';
-
+import { existsSync, readdir } from "fs";
+import { normalize } from "path";
+import rimraf from "rimraf";
 
 async function asyncRimraf(path) {
-  return new Promise((resolve, reject) => {
-    resolve(rimraf(path, () => {
-      resolve("Success")
-    }))
-  }) 
+  return new Promise(resolve => {
+    resolve(
+      rimraf(path, () => {
+        resolve("Success");
+      })
+    );
+  });
 }
 
+export default function({
+  deleteAll = true,
+  chosenDir = "",
+  noDeleteOptions = [],
+  quiet = false
+} = {}) {
 
-export default function({deleteAll = true, chosenDir = "", noDeleteOptions = [], quiet = false} = {}) {
-  console.log("Run Check1")
   const normPath = normalize(chosenDir);
 
   if (!existsSync(normPath)) {
-    quiet ? null : console.log("Dir Not Found")
+    quiet ? null : console.log("Directory Not Found");
     return;
   }
 
@@ -31,9 +36,8 @@ export default function({deleteAll = true, chosenDir = "", noDeleteOptions = [],
       }
     }
   }
-  
-  readdir(normPath, async function(err, items) {
 
+  readdir(normPath, async function(err, items) {
     if (!deleteAll) {
       if (noDeleteOptions.length < 1) {
         quiet ? null : console.log("No Options Passed");
@@ -46,37 +50,21 @@ export default function({deleteAll = true, chosenDir = "", noDeleteOptions = [],
 
       if (noDeleteOptions.length > 1) {
         for (let i = 1; i < noDeleteOptions.length; i++) {
-          filteredItems = filteredItems.filter(item => !item.includes(noDeleteOptions[i]));
+          filteredItems = filteredItems.filter(
+            item => !item.includes(noDeleteOptions[i])
+          );
         }
       }
-
-      console.log("Run Check2")
 
       asyncClearEach(filteredItems);
       return {
         name: "startFresh"
-      }
-
-      // return {
-      //   name: "startFresh",
-      //   async buildStart(options) {
-      //     quiet ? null : console.log("OIOIOIOIOIOI")
-      //     asyncClearEach(filteredItems);
-      //   }
-      // }
+      };
     }
-    
+
     asyncClearEach(items);
     return {
       name: "startFresh"
-    }
-
-    // return {
-    //   name: "startFresh",
-    //   async buildStart(options) {
-    //     quiet ? null : console.log("OIOIOIOIOIOI")
-    //     asyncClearEach(items);
-    //   }
-    // }
+    };
   });
 }
