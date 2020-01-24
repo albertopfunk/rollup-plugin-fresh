@@ -5,6 +5,7 @@
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "repository": "https://github.com/albertopfunk/rollup-plugin-fresh",
+  "bugs": "https://github.com/albertopfunk/rollup-plugin-fresh/issues",
   "author": "albertopfunk",
   "license": "MIT",
   "publishConfig": {
