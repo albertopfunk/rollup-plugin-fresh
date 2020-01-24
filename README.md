@@ -20,34 +20,13 @@ Runs at build time, before generating files
 import startFresh from 'rollup-plugin-fresh';
 
 plugins: [
-    svelte({
-      // enable run-time checks when not in production
-      dev: !production,
-      
-      // extract any component CSS out into a separate file
-      css: css => {
-        css.write('public/bundle.css');
-      }
-    }),
-
-    // removes files from a chosen directory, does not remove matching options
-    startFresh({
-      chosenDir: "./public/",
-      deleteAll: false,
-      noDeleteOptions: ["global.css", ".html", ".png"],
-      quiet: true
-    }),
-
-    // used for external dependencies installed from npm
-    resolve(),
-    commonjs(),
-
-    // live reload when not in production
-    !production && livereload('public'),
-
-    // building for production, minify
-    production && terser()
-  ],
+  startFresh({
+    chosenDir: "./public/",
+    deleteAll: false,
+    noDeleteOptions: ["global.css", ".html", ".png"],
+    quiet: true
+  }),
+],
 ```
 
 
@@ -55,12 +34,13 @@ plugins: [
 
 ```javascript
 
-startFresh({
-  chosenDir: "./public/",
-  deleteAll: false,
-  noDeleteOptions: ["global.css", ".html", ".png"],
-  quiet: true
-})
+chosenDir: "./public/"
+
+deleteAll: false
+
+noDeleteOptions: ["global.css", ".html", ".png"]
+
+quiet: true
 
 ```
 
