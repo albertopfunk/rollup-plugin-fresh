@@ -13,16 +13,21 @@ async function asyncRimraf(path) {
 }
 
 export default function({
-  deleteAll = true,
   chosenDir = "",
+  deleteAll = true,
   noDeleteOptions = [],
   quiet = false
 } = {}) {
 
+  if (chosenDir === "") {
+    console.log("chosenDir is required -- string:directory");
+    return;
+  }
+
   const normPath = normalize(chosenDir);
 
   if (!existsSync(normPath)) {
-    console.log("Directory Not Found");
+    console.log(`Directory ${chosenDir} Not Found`);
     return;
   }
 
