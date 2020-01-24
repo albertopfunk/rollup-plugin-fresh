@@ -1,5 +1,6 @@
 # rollup-plugin-fresh
 clear all files or targeted files from a chosen directory at build time
+<br/>
 
 
 ## Install
@@ -9,6 +10,7 @@ Using npm:
 ```console
 npm install rollup-plugin-fresh --save-dev
 ```
+<br/>
 
 
 ## Usage
@@ -28,6 +30,7 @@ plugins: [
   }),
 ],
 ```
+<br/>
 
 
 ## Options
@@ -43,7 +46,7 @@ noDeleteOptions: ["global.css", ".html", ".png"]
 quiet: true
 
 ```
-
+<br/>
 
 ### `chosenDir` - **Required**
 
@@ -53,6 +56,7 @@ Default: `""`
 Path starts at the root of your project<br/>
 Note if rollup.config file is somewhere other than root, the path might be off<br/>
 You can check the logs to see if the directory or file are not found<br/>
+
 **Full path is required**<br/>
 `No - "public"`<br/>
 `Yes - "./public/"`
@@ -60,7 +64,7 @@ You can check the logs to see if the directory or file are not found<br/>
 Other examples<br/>
 `"./public/bundle/"`<br/>
 `"./src/some/other/directory/"`
-
+<br/>
 
 ### `deleteAll`
 
@@ -76,7 +80,7 @@ Deletes files except files that match noDeleteOptions<br/>
 Requires `noDeleteOptions`<br/>
 Uses `Array.prototype.includes()` under the hood to match files with inputs<br/>
 (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes)
-
+<br/>
 
 ### `noDeleteOptions`
 
@@ -93,7 +97,7 @@ Few examples
 ["global.css", ".html", ".png", "importantfile.js", "randomName", ".cjs.js"]
 
 ```
-
+<br/>
 
 ### `quiet`
 
