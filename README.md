@@ -108,7 +108,7 @@ Type: `Boolean`<br/>
 Default: `false`
 
 **true**<br/>
-Removes activity logs - *files removed* and *files not found(during removal process)*<br/>
+Removes activity logs - 'files removed' and 'files not found'(during removal process)<br/>
 Error logs will still be active
 
 **false**<br/>
