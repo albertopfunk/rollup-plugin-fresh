@@ -1,4 +1,6 @@
-![npm](https://img.shields.io/npm/v/rollup-plugin-fresh) ![NPM](https://img.shields.io/npm/l/rollup-plugin-fresh)
+![npm](https://img.shields.io/npm/v/rollup-plugin-fresh) 
+![npm bundle size](https://img.shields.io/bundlephobia/min/rollup-plugin-fresh) 
+![NPM](https://img.shields.io/npm/l/rollup-plugin-fresh)
 
 # rollup-plugin-fresh
 clear all files or targeted files from a chosen directory at build time
