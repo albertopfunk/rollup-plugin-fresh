@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-fresh",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "clear targeted files from chosen directory at build time",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
