@@ -46,9 +46,9 @@ noDeleteOptions: ["global.css", ".html", ".png"]
 quiet: true
 
 ```
-<br/>
 
-### `chosenDir` - **Required**
+
+### chosenDir - **Required**
 
 Type: `String`<br/>
 Default: `""`
@@ -58,36 +58,38 @@ Note if rollup.config file is somewhere other than root, the path might be off<b
 You can check the logs to see if the directory or file are not found<br/>
 
 **Full path is required**<br/>
-`No - "public"`<br/>
-`Yes - "./public/"`
+No - `"public"`<br/>
+Yes - `"./public/"`
 
 Other examples<br/>
 `"./public/bundle/"`<br/>
 `"./src/some/other/directory/"`
-<br/>
 
-### `deleteAll`
+
+
+### deleteAll
 
 Type: `Boolean`<br/>
 Default: `true`
 
-`true`<br/>
+**true**<br/>
 Deletes all files in the chosen directory<br/>
 Skips `noDeleteOptions`<br/>
 
-`false`<br/>
+**false**<br/>
 Deletes files except files that match noDeleteOptions<br/>
 Requires `noDeleteOptions`<br/>
 Uses `Array.prototype.includes()` under the hood to match files with inputs<br/>
 (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes)
-<br/>
 
-### `noDeleteOptions`
+
+
+### noDeleteOptions
 
 Type: `Array[...String]`<br/>
 Default: `[]`
 
-Required when `deleteAll:false`<br/>
+Required when javascript```deleteAll: false```<br/>
 Since it is using `Array.prototype.includes()`, you can target files in different ways<br/>
 Familiarize yourself with this method if you are not already to avoid accidentally removing files
 
@@ -97,16 +99,17 @@ Few examples
 ["global.css", ".html", ".png", "importantfile.js", "randomName", ".cjs.js"]
 
 ```
-<br/>
 
-### `quiet`
+
+
+### quiet
 
 Type: `Boolean`<br/>
 Default: `false`
 
-`true`<br/>
+**true**<br/>
 Removes activity logs - *files removed* and *files not found(during removal process)*<br/>
 Error logs will still be active
 
-`false`<br/>
+**false**<br/>
 logs all activity
