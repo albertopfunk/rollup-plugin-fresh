@@ -2,7 +2,7 @@
 ![NPM](https://img.shields.io/npm/l/rollup-plugin-fresh)
 
 # rollup-plugin-fresh
-clear all files or targeted files from a chosen directory at build time
+Remove all files or targeted files from a chosen directory at build time
 <br/>
 
 
@@ -80,7 +80,7 @@ Deletes all files in the chosen directory<br/>
 Skips `noDeleteOptions`<br/>
 
 **false**<br/>
-Deletes files except files that match noDeleteOptions<br/>
+Deletes all files except files that match `noDeleteOptions`<br/>
 Requires `noDeleteOptions`<br/>
 Uses `Array.prototype.includes()` under the hood to match files with inputs<br/>
 (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes)
@@ -92,7 +92,7 @@ Uses `Array.prototype.includes()` under the hood to match files with inputs<br/>
 Type: `Array[...String]`<br/>
 Default: `[]`
 
-Required when javascript```deleteAll: false```<br/>
+Required when ```javascript deleteAll: false```<br/>
 Since it is using `Array.prototype.includes()`, you can target files in different ways<br/>
 Familiarize yourself with this method if you are not already to avoid accidentally removing files
 
