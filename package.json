@@ -14,7 +14,8 @@
   "scripts": {
     "build": "rollup -c",
     "format": "prettier \"src/**/*.js\" --write",
-    "lint": "eslint \"src/**/*.js\" --quiet"
+    "lint": "eslint \"src/**/*.js\" --quiet",
+    "prepublish": "npm run format && npm run lint && npm run build"
   },
   "keywords": [
     "rollup-plugin",

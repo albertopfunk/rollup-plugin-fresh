@@ -56,13 +56,12 @@ quiet: true
 Type: `String`<br/>
 Default: `""`
 
-Path starts at the root of your project<br/>
-Note if rollup.config file is somewhere other than root, the path might be off<br/>
-You can check the logs to see if the directory or file are not found<br/>
+Relative path starts at the root of your project<br/>
+>You can check the logs if the directory or file(s) are not found<br/>
 
-**Full path is required**<br/>
-No - `"public"`<br/>
-Yes - `"./public/"`
+**Full relative path is required**<br/>
+Incorrect - `"public"`<br/>
+Correct - `"./public/"`
 
 Other examples<br/>
 `"./public/bundle/"`<br/>
