@@ -27,8 +27,8 @@
     "clean"
   ],
   "files": [
-    "src",
     "dist",
+    "LICENSE",
     "README.md"
   ],
   "dependencies": {
