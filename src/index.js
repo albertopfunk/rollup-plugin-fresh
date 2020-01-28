@@ -20,7 +20,7 @@ export default function({
 } = {}) {
 
   if (chosenDir === "") {
-    console.log("chosenDir is required -- string:directory");
+    console.log('chosenDir is required -- "./directory/"');
     return;
   }
 
@@ -49,9 +49,9 @@ export default function({
         return;
       }
 
-      let filteredItems = [];
-      items = items.filter(item => !item.includes(noDeleteOptions[0]));
-      filteredItems.push(...items);
+      let filteredItems = items.filter(
+        item => !item.includes(noDeleteOptions[0])
+      );
 
       if (noDeleteOptions.length > 1) {
         for (let i = 1; i < noDeleteOptions.length; i++) {
