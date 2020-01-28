@@ -80,9 +80,9 @@ Deletes all files in the chosen directory<br/>
 Skips `noDeleteOptions`<br/>
 
 **false**<br/>
-Deletes all files except files that match `noDeleteOptions`<br/>
+Deletes all files **except** files that match the `noDeleteOptions`<br/>
 Requires `noDeleteOptions`<br/>
-Uses `Array.prototype.includes()` under the hood to match files with inputs<br/>
+Uses `Array.prototype.includes()` under the hood to match files<br/>
 (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes)
 
 
@@ -94,9 +94,7 @@ Default: `[]`
 
 Required when ```javascript deleteAll: false```<br/>
 Since it is using `Array.prototype.includes()`, you can target files in different ways<br/>
-Familiarize yourself with this method if you are not already to avoid accidentally removing files
 
-Few examples
 ```javascript
 
 ["global.css", ".html", ".png", "importantfile.js", "randomName", ".cjs.js"]
