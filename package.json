@@ -1,7 +1,7 @@
 {
   "name": "rollup-plugin-fresh",
   "version": "2.3.0",
-  "description": "clear targeted files from chosen directory at build time",
+  "description": "Remove all files or targeted files from a chosen directory at build time",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "repository": "https://github.com/albertopfunk/rollup-plugin-fresh",
@@ -12,7 +12,6 @@
     "access": "public"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c",
     "format": "prettier \"src/**/*.js\" --write",
     "lint": "eslint \"src/**/*.js\" --quiet"
@@ -21,6 +20,8 @@
     "rollup-plugin",
     "rollup",
     "plugin",
+    "directory",
+    "files",
     "clear",
     "remove",
     "delete",
