@@ -1,4 +1,4 @@
-# @rollup/plugin-auto-install ChangeLog
+# rollup-plugin-fresh ChangeLog
 
 ## 2.4.0
 
