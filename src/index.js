@@ -3,10 +3,14 @@ import { normalize } from "path";
 import rimraf from "rimraf";
 
 async function asyncRimraf(path) {
-  return new Promise(resolve => {
+  return new Promise((resolve, reject) => {
     resolve(
-      rimraf(path, () => {
-        resolve("Success");
+      rimraf(path, err => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve("Success");
+        }
       })
     );
   });
@@ -34,10 +38,14 @@ export default function({
   async function asyncClearEach(items) {
     for (let i = 0; i < items.length; i++) {
       if (existsSync(normPath + items[i])) {
-        quiet ? null : console.log("File Removed:", items[i]);
-        await asyncRimraf(normPath + items[i]);
+        try {
+          await asyncRimraf(normPath + items[i]);
+          quiet ? null : console.log("File Removed:", items[i]);
+        } catch (err) {
+          console.log(`Error removing file ${items[i]}. Error Message:`, err);
+        }
       } else {
-        quiet ? null : console.log("File Not Found:", items[i]);
+        console.log("File Not Found:", items[i]);
       }
     }
   }
