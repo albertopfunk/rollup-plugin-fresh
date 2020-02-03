@@ -1,5 +1,12 @@
 # rollup-plugin-fresh ChangeLog
 
+## 2.5.0
+
+- no breaking changes
+- additional error handling and logging
+- logging 'File not found' when quiet
+
+
 ## 2.4.0
 
 - no breaking changes
