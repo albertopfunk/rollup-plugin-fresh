@@ -2,7 +2,7 @@
 ![NPM](https://img.shields.io/npm/l/rollup-plugin-fresh)
 
 # rollup-plugin-fresh
-Remove all files or targeted files from a chosen directory at build time
+Remove all files or targeted files from a chosen directory
 <br/>
 
 
@@ -19,7 +19,9 @@ npm install rollup-plugin-fresh --save-dev
 ## Usage
 
 Used as a plugin<br/>
-Runs at build time, before generating files
+Runs when the config is first evaluated<br/>
+>Does not run before rebundling(in watch mode)
+
 
 ```JavaScript
 import startFresh from 'rollup-plugin-fresh';
