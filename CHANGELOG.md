@@ -4,6 +4,7 @@
 
 - no breaking changes
 - README update to reflect when the plugin runs
+- dep updates
 
 
 ## 2.5.0
