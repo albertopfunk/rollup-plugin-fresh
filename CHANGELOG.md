@@ -1,6 +1,6 @@
 # rollup-plugin-fresh ChangeLog
 
-## 2.6.0(next)
+## 2.6.0
 
 - no breaking changes
 - README update to reflect when the plugin runs

@@ -2,6 +2,7 @@ import { existsSync, readdir } from "fs";
 import { normalize } from "path";
 import rimraf from "rimraf";
 
+// rimraf recommends async
 async function asyncRimraf(path) {
   return new Promise((resolve, reject) => {
     resolve(
