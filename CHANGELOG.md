@@ -1,5 +1,12 @@
 # rollup-plugin-fresh ChangeLog
 
+
+## 2.6.1
+
+- no breaking changes
+- dep updates
+
+
 ## 2.6.0
 
 - no breaking changes
