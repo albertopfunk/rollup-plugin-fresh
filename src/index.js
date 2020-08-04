@@ -6,7 +6,7 @@ import rimraf from "rimraf";
 async function asyncRimraf(path) {
   return new Promise((resolve, reject) => {
     resolve(
-      rimraf(path, err => {
+      rimraf(path, (err) => {
         if (err) {
           reject(err);
         } else {
@@ -17,13 +17,12 @@ async function asyncRimraf(path) {
   });
 }
 
-export default function({
+export function startFresh({
   chosenDir = "",
   deleteAll = true,
   noDeleteOptions = [],
-  quiet = false
+  quiet = false,
 } = {}) {
-
   if (chosenDir === "") {
     console.log('chosenDir is required -- "./directory/"');
     return;
@@ -51,7 +50,7 @@ export default function({
     }
   }
 
-  readdir(normPath, async function(err, items) {
+  readdir(normPath, async function (_, items) {
     if (!deleteAll) {
       if (noDeleteOptions.length < 1) {
         console.log("No Options Passed");
@@ -59,26 +58,26 @@ export default function({
       }
 
       let filteredItems = items.filter(
-        item => !item.includes(noDeleteOptions[0])
+        (item) => !item.includes(noDeleteOptions[0])
       );
 
       if (noDeleteOptions.length > 1) {
         for (let i = 1; i < noDeleteOptions.length; i++) {
           filteredItems = filteredItems.filter(
-            item => !item.includes(noDeleteOptions[i])
+            (item) => !item.includes(noDeleteOptions[i])
           );
         }
       }
 
       asyncClearEach(filteredItems);
       return {
-        name: "startFresh"
+        name: "startFresh",
       };
     }
 
     asyncClearEach(items);
     return {
-      name: "startFresh"
+      name: "startFresh",
     };
   });
 }
