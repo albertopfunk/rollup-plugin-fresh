@@ -17,7 +17,7 @@ async function asyncRimraf(path) {
   });
 }
 
-export function startFresh({
+export default function startFresh({
   chosenDir = "",
   deleteAll = true,
   noDeleteOptions = [],
