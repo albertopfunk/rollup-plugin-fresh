@@ -1,6 +1,12 @@
 # rollup-plugin-fresh ChangeLog
 
 
+## 2.6.3
+
+- no breaking changes
+- fix on cjs output export type
+
+
 ## 2.6.2
 
 - no breaking changes
