@@ -1,6 +1,13 @@
 # rollup-plugin-fresh ChangeLog
 
 
+## 2.6.2
+
+- no breaking changes
+- dep updates
+- exporting as named export instead of default export
+
+
 ## 2.6.1
 
 - no breaking changes
